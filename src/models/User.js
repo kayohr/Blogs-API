@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true, // especifica que os nomes das colunas na tabela devem ser em snake_case (exemplo: employee_id) em vez de camelCase (exemplo: employeeId).
     });
   
-    User.associate = (models) => {
-        User.hasMany(models.blog_post,                           //associação de "User" para "blog_post", usando o método "hasMany". Isso significa que um usuário pode ter vários posts de blog
-        { foreignKey: 'user_Id', as: 'blogposts' });             //especifica que a chave estrangeira será usada para vincular os dois modelos e a opção "as" define o nome que será usado para a associação.
-    };
+    // User.associate = (models) => {
+    //     User.hasMany(models.BlogPost,                           //associação de "User" para "blog_post", usando o método "hasMany". Isso significa que um usuário pode ter vários posts de blog
+    //     { foreignKey: 'user_id', as: 'blogposts' });             //especifica que a chave estrangeira será usada para vincular os dois modelos e a opção "as" define o nome que será usado para a associação.
+    // };
   
     return User;
   };

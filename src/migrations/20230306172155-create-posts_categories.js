@@ -11,7 +11,7 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           // Informa a tabela da referência da associação
-          model: 'categories',
+          model: 'blog_posts',
           // Informa a coluna da referência que é a chave correspondente
           key: 'id',
       },
