@@ -6,6 +6,17 @@ console.log(getAcess);
 return getAcess;
 };
 
+// const servicesCreateUser = async (email, password, displayName, image) => {
+//     const getAcessUser = await User.findAll({ email, password, displayName, image });
+//     return getAcessUser;
+//     };
+const servicesCreateUser = async (email, password, displayName, image) => {
+    const users = await User.create({ email, password, displayName, image });
+  
+    return users;
+  };
+
 module.exports = {
     servicesLogion,
+    servicesCreateUser,
 };

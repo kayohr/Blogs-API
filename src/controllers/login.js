@@ -14,7 +14,22 @@ const login = async (req, res) => {
     
    return res.status(200).json({ token });
 };
-
-module.exports = {
+const createUser = async (req, res) => {
+    const { email, password, displayName, image } = req.body;
+  
+    try {
+      const user = await loginService.servicesCreateUser(email, password, displayName, image);
+      const token = await creatToken(user);
+      return res.status(201).json({ token });
+    } catch (e) {
+      console.log(e.message);
+      res.status(409).json({
+        message: 'User already registered',
+      });
+    }
+  };
+        
+        module.exports = {
     login,
+    createUser,
 };
