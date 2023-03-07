@@ -1,5 +1,6 @@
 const express = require('express');
 const { login } = require('../controllers/index');
+const { verifyToken } = require('../auth/authoFunctions');
 
 const router = express.Router();
 const {
@@ -12,5 +13,7 @@ const {
 router.post('/', validDisplayName,
 validEmail,
 validPassword, login.createUser);
+
+router.get('/', verifyToken, login.getAll);
 
 module.exports = router;

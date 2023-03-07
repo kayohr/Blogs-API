@@ -16,7 +16,14 @@ const servicesCreateUser = async (email, password, displayName, image) => {
     return users;
   };
 
+  const getAll = async () => {
+    const users = await User.findAll({ attributes: { exclude: ['password'] } });
+  
+    return users;
+  };
+
 module.exports = {
     servicesLogion,
     servicesCreateUser,
+    getAll,
 };

@@ -28,8 +28,20 @@ const createUser = async (req, res) => {
       });
     }
   };
+
+  const getAll = async (_req, res) => {
+    try {
+      const employees = await loginService.getAll();
+      console.log(employees);
+      return res.status(200).json(employees);
+    } catch (e) {
+      console.log(e.message);
+      // return res.status(401).json({ message: 'Expired or invalid token' });
+    }
+  };
         
-        module.exports = {
+  module.exports = {
     login,
     createUser,
+    getAll,
 };

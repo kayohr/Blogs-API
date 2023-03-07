@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.use('/login', routerLogin);
 app.use('/user', routerUser);
+// app.use('/user', routerUser);
 
 // ...
 
