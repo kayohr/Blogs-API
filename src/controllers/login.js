@@ -39,9 +39,27 @@ const createUser = async (req, res) => {
       // return res.status(401).json({ message: 'Expired or invalid token' });
     }
   };
+
+  const getById = async (req, res) => {
+    try {
+    const { id } = req.params;
+
+    const byId = await loginService.getById(id);
+    if (!byId) {
+ return res.status(404).json({
+      message: 'User does not exist',
+    }); 
+}
+    return res.status(200).json(byId);
+  } catch (e) {
+    console.log(e.message);
+    // res.status(500).json({ message: error500Message });
+    }
+  };
         
   module.exports = {
     login,
     createUser,
     getAll,
+    getById,
 };

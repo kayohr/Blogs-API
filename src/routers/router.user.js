@@ -15,5 +15,6 @@ validEmail,
 validPassword, login.createUser);
 
 router.get('/', verifyToken, login.getAll);
+router.get('/:id', verifyToken, login.getById);
 
 module.exports = router;

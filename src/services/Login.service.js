@@ -22,8 +22,16 @@ const servicesCreateUser = async (email, password, displayName, image) => {
     return users;
   };
 
+  const getById = async (id) => {
+    const users = await User.findOne({ where: { id }, attributes: { exclude: ['password'] } });
+    // const users = await User.findOne();
+  
+    return users;
+  };
+
 module.exports = {
     servicesLogion,
     servicesCreateUser,
     getAll,
+    getById,
 };
