@@ -1,6 +1,6 @@
 const express = require('express');
 // const { login } = require('./controllers/index');
-const { routerLogin, routerUser } = require('./routers');
+const { routerLogin, routerUser, routerCategories } = require('./routers');
 // ...
 
 const app = express();
@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/login', routerLogin);
 app.use('/user', routerUser);
-// app.use('/user', routerUser);
+app.use('/categories', routerCategories);
 
 // ...
 

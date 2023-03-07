@@ -56,10 +56,23 @@ const createUser = async (req, res) => {
     // res.status(500).json({ message: error500Message });
     }
   };
+
+  const newCategory = async (req, res) => {
+    const { name } = req.body;
+    try {
+      const validName = await loginService.getName(name);
+      
+      return res.status(201).json(validName);
+    } catch (e) {
+      console.log(e.message);
+      return res.status(404).json(); 
+      }
+  };
         
   module.exports = {
     login,
     createUser,
     getAll,
     getById,
+    newCategory,
 };

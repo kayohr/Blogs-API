@@ -1,4 +1,5 @@
 const { User } = require('../models/index');
+const { Category } = require('../models/index');
 
 const servicesLogion = async (email, password) => {
 const getAcess = await User.findOne({ where: { email, password } });
@@ -29,9 +30,17 @@ const servicesCreateUser = async (email, password, displayName, image) => {
     return users;
   };
 
+  const getName = async (name) => {
+    const users = await Category.create({ name });
+    // const users = await User.findOne();
+  
+    return users;
+  };
+
 module.exports = {
     servicesLogion,
     servicesCreateUser,
     getAll,
     getById,
+    getName,
 };
