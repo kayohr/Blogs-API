@@ -37,10 +37,17 @@ const servicesCreateUser = async (email, password, displayName, image) => {
     return users;
   };
 
+  const getAllCategory = async () => {
+    const getIdName = await Category.findAll();
+  
+    return getIdName;
+  };
+
 module.exports = {
     servicesLogion,
     servicesCreateUser,
     getAll,
     getById,
     getName,
+    getAllCategory,
 };

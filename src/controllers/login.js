@@ -68,6 +68,17 @@ const createUser = async (req, res) => {
       return res.status(404).json(); 
       }
   };
+
+  const getCategory = async (req, res) => {
+    try {
+      const getCategories = await loginService.getAllCategory();
+      console.log('aaaaaaaa', getCategories);
+      return res.status(200).json(getCategories);
+    } catch (error) {
+      console.log(error);
+      return res.status(401).json({ error }); 
+    }
+  };
         
   module.exports = {
     login,
@@ -75,4 +86,5 @@ const createUser = async (req, res) => {
     getAll,
     getById,
     newCategory,
+    getCategory,
 };
