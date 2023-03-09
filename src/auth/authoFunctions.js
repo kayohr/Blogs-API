@@ -11,13 +11,13 @@ const creatToken = (payload) =>
 
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
-
+// console.log(token);
   try {
     if (!token) {
         return res.status(401).json({ message: 'Token not found' });
     }
     const payload = jwt.verify(token, portToken);
-
+console.log(payload);
     req.User = payload;
 
     return next();

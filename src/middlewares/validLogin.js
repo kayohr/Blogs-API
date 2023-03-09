@@ -54,10 +54,24 @@ const validName = (req, res, next) => {
     next();
 };
 
+const validPost = (req, res, next) => {
+    // const { title, content, categoryIds } = req.body;
+    // if (!title || !content || !categoryIds)]
+    const { categoryIds } = req.body;
+    if (!categoryIds) {
+        return res.status(400).json({
+            message: 'one or more "categoryIds" not found',
+          });
+    }
+
+    next();
+};
+
 module.exports = {
     validLogin,
     validDisplayName,
     validEmail,
     validPassword,
     validName,
+    validPost,
 };

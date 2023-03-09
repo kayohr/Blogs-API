@@ -10,7 +10,7 @@ const login = async (req, res) => {
             message: 'Invalid fields',
           });
     }
-    const token = await creatToken(email);
+    const token = creatToken({ email, id: getUser.dataValues.id });
     
    return res.status(200).json({ token });
 };
@@ -80,6 +80,33 @@ const createUser = async (req, res) => {
     }
   };
         
+  // const newPost = async (req, res) => {
+  //   try {
+  //     const { title, content, categoryIds } = req.body;
+  //     const { payload: { id } } = req.User;
+  //     const newPosts = await loginService.creatPost(title, content, categoryIds, id);
+  //         if (!newPosts) {
+  //           return res.status(400).json({
+  //             message: 'Some required fields are missing',
+  //           }); 
+  //       }
+  //           return res.status(201).json(newPosts);
+  //         } catch (error) {
+  //           console.log(error.message);
+  //           }
+  // };
+  const getPost = async (_req, res) => {
+    // const post = await loginService.getPostAll();
+    // console.log(post);
+    // return res.status(200).json(post);
+    try {
+    const post = await loginService.getPostAll();
+      return res.status(200).json(post);
+  } catch (e) {
+      console.log(e.message);
+    }
+  };
+
   module.exports = {
     login,
     createUser,
@@ -87,4 +114,6 @@ const createUser = async (req, res) => {
     getById,
     newCategory,
     getCategory,
+    // newPost,
+    getPost,
 };
