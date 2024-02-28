@@ -1,3 +1,1 @@
-O Blogs-API é uma aplicação que envolve API que significa Application Programming Interface (Interface de Programação de Aplicação), que contém um banco de dados para a produção de conteúdo para um blog.
-
-Nessa aplicação é desenvolvida em Node.js usando o pacote sequelize para fazer um CRUD de posts.
+O Blogs-API é uma aplicação que usa uma ferramenta chamada API (Interface de Programação de Aplicação) para criar e gerenciar conteúdo para um blog. Funciona como uma espécie de "sistema nervoso" que permite ao blog receber e enviar informações para o banco de dados. A aplicação é desenvolvida principalmente em Node.js, uma linguagem de programação popular, e utiliza o pacote Sequelize para realizar operações básicas de criação, leitura, atualização e exclusão (CRUD) de postagens no blog.
